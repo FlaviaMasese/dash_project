@@ -19,12 +19,18 @@ from dash.dependencies import Output, Input
 import plotly.graph_objs as go
 import dash_trich_components as dtc
 from dash.exceptions import PreventUpdate
-
+import dash_extensions as de  # pip install dash-extensions
 #%%
 from style import cardbody_style, card_icon, cardimg_style, card_style
 import analytic_page
 from helper_components import output_card
 #%%
+
+# Lotties: Emil at https://github.com/thedirtyfew/dash-extensions
+url = "https://assets1.lottiefiles.com/private_files/lf30_WdTEui.json"
+url2 = "https://assets8.lottiefiles.com/packages/lf20_DMgKk1.json"
+options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
+
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 
 
@@ -93,7 +99,7 @@ homepage = html.Div(children=[
                          dbc.Card(
                             [
                                 dbc.CardImg(
-                                    src='./Img/firmbee-com-jrh5lAq-mIs-unsplash.jpeg',
+                                    #src=url,
                                 
                                     style=cardimg_style,
                                 ),
@@ -120,27 +126,30 @@ homepage = html.Div(children=[
                  html.Br(),
                  dbc.Col([
                         dbc.Card(
-                            dbc.Card(
+                            dbc.CardBody(
                                 [
-                                    dbc.CardImg(
+                                 html.Div(de.Lottie(options=options, url=url2, speed=1)),
+                                 #html.H4("Project 1", className="card-title"),
+                                 html.P("Learning to code is fun!", className="card-text"),   
+                                    #dbc.CardImg(
                                         #src=img2
-                                        style=cardimg_style,
-                                    ),
-                                    dbc.CardLink(id="ml_link",
-                                        children=[
-                                            dbc.CardImgOverlay(
-                                                [
-                                                    dbc.CardBody(
-                                                        html.H3(
-                                                            "Machine leARNING",
-                                                            style=cardbody_style,
-                                                        )
-                                                    )
-                                                ]
-                                            )
-                                        ],
-                                        href="ml",
-                                    ),
+                                        #style=cardimg_style,
+                                   # ),
+                                    #dbc.CardLink(id="ml_link",
+                                        #children=[
+                                            #dbc.CardImgOverlay(
+                                               # [
+                                                    #dbc.CardBody(
+                                                        #html.H3(
+                                                           # "Machine leARNING",
+                                                           # style=cardbody_style,
+                                                       # )
+                                                   # )
+                                               # ]
+                                           # )
+                                        #],
+                                       # href="ml",
+                                   # ),
                                 ],
                                 style=card_style,
                             )
@@ -157,10 +166,10 @@ homepage = html.Div(children=[
 #])
 
 
-ml_page = html.Div([])
+#ml_page = html.Div([])
 
 app.layout = start_page
-app.validation_layout = html.Div([homepage, analytic_page.page_view, ml_page])
+app.validation_layout = html.Div([homepage, analytic_page.page_view])
 
 ######## callback  ######
 @app.callback(Output(component_id="page_location", component_property="children"),
@@ -169,10 +178,10 @@ app.validation_layout = html.Div([homepage, analytic_page.page_view, ml_page])
 def render_page_selected(page_link):
     page_selected = page_link.split('/')[-1]
     
-    if page_selected == 'ml':
-        return ml_page
-    elif page_selected == 'analytics':
+    if page_selected == 'analytics':
         return analytic_page.page_view
+    #elif page_selected == 'analytics':
+        #return analytic_page.page_view
     else:
         return homepage
  
