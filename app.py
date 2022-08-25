@@ -78,8 +78,8 @@ homepage = html.Div(children=[
                                         html.Ul([
                                             html.Br(),
                                             html.Li('General Household Survey, Panel 2015-2016,'),
-                                            html.Li('Analyzing and visualizing average expenditure of selected items by States'),
-                                            html.Li('Dash presentation pracice'),
+                                            html.Li('Analyzing and visualizing consumption of fossil energy in Nigeria'),
+                                            html.Li('Analysis of living standard in Nigeria 2015-2016'),
                                             html.Li([
                                                 'Source:',
                                                     html.A('https://microdata.worldbank.org/index.php/catalog/2734/data-dictionary',
