@@ -2,3 +2,6 @@
 __pycache__/style.cpython-310.pyc
 __pycache__/helper_components.cpython-310.pyc
 __pycache__/analytic_page.cpython-310.pyc
+.pyc
+.env 
+.DS_Store 
