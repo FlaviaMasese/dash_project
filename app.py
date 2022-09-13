@@ -32,7 +32,7 @@ url2 = "https://assets8.lottiefiles.com/packages/lf20_DMgKk1.json"
 options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
 
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
-server =app.server
+#server =app.server
 
 start_page = html.Div(
     children=[     
