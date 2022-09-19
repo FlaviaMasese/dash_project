@@ -19,7 +19,7 @@ from dash.dependencies import Output, Input
 import plotly.graph_objs as go
 import dash_trich_components as dtc
 from dash.exceptions import PreventUpdate
-import dash_extensions as de  # pip install dash-extensions
+#import dash_extensions as de  # pip install dash-extensions
 #%%
 from style import cardbody_style, card_icon, cardimg_style, card_style
 import analytic_page
@@ -27,9 +27,9 @@ from helper_components import output_card
 #%%
 
 # Lotties: Emil at https://github.com/thedirtyfew/dash-extensions
-url = "https://assets1.lottiefiles.com/private_files/lf30_WdTEui.json"
-url2 = "https://assets8.lottiefiles.com/packages/lf20_DMgKk1.json"
-options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
+#url = "https://assets1.lottiefiles.com/private_files/lf30_WdTEui.json"
+#url2 = "https://assets8.lottiefiles.com/packages/lf20_DMgKk1.json"
+#options = dict(loop=True, autoplay=True, rendererSettings=dict(preserveAspectRatio='xMidYMid slice'))
 
 app = dash.Dash(__name__, external_stylesheets= [dbc.themes.CYBORG, dbc.icons.BOOTSTRAP, dbc.icons.FONT_AWESOME])
 #server =app.server
@@ -123,14 +123,14 @@ homepage = html.Div(children=[
                         )
                      #])
                      ]),
-                 html.Br(),
-                 dbc.Col([
-                        dbc.Card(
-                            dbc.CardBody(
-                                [
-                                 html.Div(de.Lottie(options=options, url=url2, speed=1)),
+                 #html.Br(),
+                 #dbc.Col([
+                        #dbc.Card(
+                            #dbc.CardBody(
+                               # [
+                                 #html.Div(de.Lottie(options=options, url=url2, speed=1)),
                                  #html.H4("Project 1", className="card-title"),
-                                 html.P("Learning to code is fun!", className="card-text"),   
+                                 #html.P("Learning to code is fun!", className="card-text"),   
                                     #dbc.CardImg(
                                         #src=img2
                                         #style=cardimg_style,
@@ -150,11 +150,11 @@ homepage = html.Div(children=[
                                         #],
                                        # href="ml",
                                    # ),
-                                ],
-                                style=card_style,
-                            )
-                        )
-                    ])   
+                               # ],
+                                #style=card_style,
+                            #)
+                       # )
+                   # ])   
         ])
                 ],
                   
